@@ -52,6 +52,12 @@
 
                 <Button Command="{Binding IniciarSesionCommand}" 
                     Grid.Row="5" CornerRadius="30" WidthRequest="200" HeightRequest="50" BackgroundColor="#004e98" Text="INICIAR" TextColor="White" CharacterSpacing="6">
+
+                    <Button.Triggers>
+                        <DataTrigger TargetType="Button" Binding="{Binding IsLoading}" Value="True">
+                            <Setter Property="BackgroundColor" Value="Purple"></Setter>
+                        </DataTrigger>
+                    </Button.Triggers>
                 </Button>
             </Grid>
 

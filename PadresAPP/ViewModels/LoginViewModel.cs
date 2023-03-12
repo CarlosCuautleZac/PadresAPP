@@ -21,6 +21,7 @@ namespace PadresAPP.ViewModels
         public string NombreUsuario { get; set; }
         public string Password { get; set; }
         Usuario? Usuario { get; set; }
+        public bool IsLoading { get; set; }
         #endregion
 
         #region Objetos
@@ -56,18 +57,29 @@ namespace PadresAPP.ViewModels
         {
             try
             {
+
+
                 if (ConectionAvaliable())
                 {
-                    Usuario = await usuarioService.GetUsuario(NombreUsuario, Password);
-
-                    if (Usuario != null)
+                    if (!IsLoading)
                     {
-                        App.Usuario = Usuario;
-                        App.Current.MainPage = new NavigationPage(new ListaHijosView());
+                        IsLoading = true;
+                        Actualizar();
+                        Usuario = await usuarioService.GetUsuario(NombreUsuario, Password);
+
+                        if (Usuario != null)
+                        {
+                            App.Usuario = Usuario;
+                            App.Current.MainPage = new NavigationPage(new ListaHijosView());
+                        }
                     }
                 }
                 else
                     await App.Current.MainPage.DisplayAlert("Error", "No hay conexion a internet.", "OK");
+
+                IsLoading = false;
+                Actualizar();
+
 
             }
             catch (Exception ex)

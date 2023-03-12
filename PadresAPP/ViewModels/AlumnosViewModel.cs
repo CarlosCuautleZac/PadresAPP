@@ -26,6 +26,7 @@ namespace PadresAPP.ViewModels
         public Usuario? Usuario { get; set; }
         public ObservableCollection<Alumno> Alumnos { get; set; } = new();
         public Alumno Alumno { get; set; }
+        public bool IsLoading { get; set; }
 
         #endregion
 
@@ -117,7 +118,10 @@ namespace PadresAPP.ViewModels
         {
             if (ConectionAvaliable())
             {
+                IsLoading = true;
+                Actualizar();
                 Alumnos = new(await alumnoSerivce.Get(Usuario.Id));
+                IsLoading = false;
                 Actualizar();
             }
             else
