@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PadresAPP.Views.AccionesView"
+             Title="AccionesView" NavigationPage.HasNavigationBar="False">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Border">
+                <Setter Property="Background" Value="#fafafa"></Setter>
+                <Setter Property="Margin" Value="100,0,100,0"></Setter>
+                <Setter Property="StrokeShape" Value="RoundRectangle 20"></Setter>
+                <Setter Property="WidthRequest" Value="370"></Setter>
+                <Setter Property="HeightRequest" Value="130"></Setter>
+
+            </Style>
+            <Style TargetType="Label">
+                <Setter Property="TextColor" Value="Black"></Setter>
+                <Setter Property="FontSize" Value="25"></Setter>
+                <Setter Property="Margin" Value="0,0,0,0"></Setter>
+                <Setter Property="Padding" Value="5"></Setter>
+                <Setter Property="VerticalOptions" Value="Center"></Setter>
+                <Setter Property="FontAttributes" Value="Bold"></Setter>
+                <Setter Property="LineBreakMode" Value="WordWrap"></Setter>
+
+            </Style>
+            <Style TargetType="Image">
+                <Setter Property="HorizontalOptions" 
+                     Value="StartAndExpand"></Setter>
+                <Setter Property="Margin" Value="20,0,5,0"></Setter>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid Background="#f3f8fd"
+              Padding="15"
+              Margin="0,0,0,0"
+              >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"></ColumnDefinition>
+                <ColumnDefinition ></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Image Source="nino.png"
+                    WidthRequest="120"
+                   HorizontalOptions="CenterAndExpand"
+                   Margin="0"></Image>
+            <StackLayout Grid.Column="1"
+                         VerticalOptions="Center">
+
+                <Label FontSize="30"
+                       FontAttributes="Bold" Text="{Binding Alumno.Nombre}"></Label>
+                <Label TextColor="#808080"
+                       FontAttributes="Italic">Matricula</Label>
+            </StackLayout>
+        </Grid>
+        <ScrollView Grid.Row="1">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition Height="auto"></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <Border>
+                    <Grid>
+                        <Grid.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"></TapGestureRecognizer>
+                        </Grid.GestureRecognizers>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="auto"></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Image Source="info.png"></Image>
+                        <Label Grid.Column="1">Datos Alumno</Label>
+                    </Grid>
+                </Border>
+                <Border Grid.Row="1">
+                    <Border.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_1"></TapGestureRecognizer>
+                    </Border.GestureRecognizers>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="auto"></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Image Source="boleta.png"></Image>
+                        <Label Grid.Column="1">Calificaciones</Label>
+                    </Grid>
+                </Border>
+                <Border Grid.Row="2">
+                    <Border.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_2"></TapGestureRecognizer>
+                    </Border.GestureRecognizers>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="auto"></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Image Source="materias.png"></Image>
+                        <Label Grid.Column="1">Lista de materias</Label>
+                    </Grid>
+                </Border>
+            </Grid>
+        </ScrollView>
+    </Grid>
+</ContentPage>

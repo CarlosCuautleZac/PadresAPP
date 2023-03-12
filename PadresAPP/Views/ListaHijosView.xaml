@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:PadresAPP.ViewModels"
+             x:Class="PadresAPP.Views.ListaHijosView"
+             Title="ListaHijosView" NavigationPage.HasNavigationBar="False">
+
+    <ContentPage.BindingContext>
+        <vm:AlumnosViewModel></vm:AlumnosViewModel>
+    </ContentPage.BindingContext>
+    
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Border">
+                <Setter Property="Background" Value="#fafafa"></Setter>
+                <Setter Property="Margin" Value="0,50,0,280"></Setter>
+
+                <Setter Property="WidthRequest" Value="400"></Setter>
+                <Setter Property="HeightRequest" Value="140"></Setter>
+                <Setter Property="Padding" Value="5"></Setter>
+
+            </Style>
+            <Style TargetType="Label">
+                <Setter Property="TextColor" Value="Black"></Setter>
+                <Setter Property="FontSize" Value="25"></Setter>
+                <Setter Property="Margin" Value="0,0,0,0"></Setter>
+                <Setter Property="Padding" Value="5"></Setter>
+                <Setter Property="HorizontalOptions" Value="CenterAndExpand"></Setter>
+                <Setter Property="FontAttributes" Value="Bold"></Setter>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+
+
+
+
+
+        <Label FontSize="35"
+               HorizontalOptions="StartAndExpand"
+                       Margin="5,25,0,0" Text="{Binding Usuario.NombreUsuario}"></Label>
+
+
+        <StackLayout Grid.Row="1">
+            <Border Stroke="#1b396a"
+                    StrokeThickness="2"
+                    WidthRequest="420"
+                    HeightRequest="60"
+                    Margin="0,0,0,0"
+                    >
+                <HorizontalStackLayout>
+                    <Image Source="nino.png"
+                       WidthRequest="45"></Image>
+                    <Label VerticalOptions="Center">Alumnos asociados:</Label>
+                </HorizontalStackLayout>
+            </Border>
+            <!--Esto es lo que se va repetir, va dentro del datatemplate-->
+            <CollectionView ItemsSource="{Binding Alumnos}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Border Margin="10" >
+                            <Border.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"></TapGestureRecognizer>
+                            </Border.GestureRecognizers>
+                            <Border.Shadow>
+                                <Shadow Brush="black"
+                        Offset="10,10" 
+                        Opacity="0.5"></Shadow>
+                            </Border.Shadow>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="auto"></ColumnDefinition>
+                                    <ColumnDefinition Width="auto"></ColumnDefinition>
+                                    <ColumnDefinition Width="0.5*"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <Image Source="nino.png"
+                        WidthRequest="80"
+                       HeightRequest="80"></Image>
+                                <Label Grid.Column="1"
+                       Margin="0,58,0,0" Text="{Binding Nombre}"
+                       ></Label>
+                                <Border Background="#f16824"
+                        StrokeShape="RoundRectangle 50"
+                        Margin="0,0,10,10"
+                        Grid.Column="2"
+                        WidthRequest="50"
+                        HeightRequest="50"
+                        HorizontalOptions="EndAndExpand"
+                        VerticalOptions="EndAndExpand"
+                        >
+
+                                    <Label FontSize="20"
+                           TextColor="White"
+                           VerticalTextAlignment="Center">&#10140;</Label>
+                                </Border>
+                                <!--Hasta aqui se repite-->
+                            </Grid>
+
+                        </Border>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </StackLayout>
+    </Grid>
+</ContentPage>

@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PadresAPP.Views.CalificacionesView"
+             Title="Calificaciones" NavigationPage.HasBackButton="False">
+    <ContentPage.Resources>
+        <Style TargetType="Label">
+            <Setter Property="FontAttributes" Value="Bold"></Setter>
+            <Setter Property="TextColor" Value="Black"></Setter>
+            <Setter Property="FontSize" Value="22"></Setter>
+            <Setter Property="HorizontalTextAlignment" Value="Center"></Setter>
+            <Setter Property="VerticalTextAlignment" Value="Center"></Setter>
+        </Style>
+
+    </ContentPage.Resources>
+
+    <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" ></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <StackLayout Orientation="Horizontal"
+                     Background="#c0c0c0c0">
+
+            <Image Source="perfil.png" Margin="10,0,0,5"></Image>
+
+            <StackLayout
+                VerticalOptions="CenterAndExpand"
+                HorizontalOptions="FillAndExpand">
+
+                <Label Margin="30,0,0,0" HorizontalTextAlignment="Start"
+                       FontSize="Title" TextColor="Black" Text="{Binding Alumno.Nombre}"></Label>
+
+                <StackLayout Orientation="Horizontal"
+                             Margin="30,0,0,0">
+
+                    <Label TextColor="Black" Margin="0" FontSize="Title" Text="{Binding Alumno.Grado}"></Label>
+                    <Label TextColor="Black" Margin="0" FontSize="Title" Text="{Binding Alumno.Seccion}"></Label>
+                </StackLayout>
+
+
+            </StackLayout>
+
+        </StackLayout>
+
+        <!--Aqui empieza la parte de la calificaciones-->
+
+        <StackLayout Grid.Row="1">
+
+            <Label Margin="0,20,0,0" CharacterSpacing="3">CALIFICACIONES</Label>
+
+
+            <!--<CollectionView >-->
+
+            <!--<CollectionView.ItemsLayout>
+                        <GridItemsLayout Orientation="Vertical" Span="1" VerticalItemSpacing="10"/>
+                    </CollectionView.ItemsLayout>
+
+                    <CollectionView.ItemTemplate >
+                        <DataTemplate>-->
+
+
+            <CollectionView ItemsSource="{Binding Alumno.Calificaciones}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame BorderColor="Transparent">
+                            <Grid>
+
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="auto"></RowDefinition>
+                                    <RowDefinition Height="auto"></RowDefinition>
+                                </Grid.RowDefinitions>
+
+
+                                <Grid BackgroundColor="#014f99" Margin="20,0" Padding="15">
+
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="120"></ColumnDefinition>
+                                        <ColumnDefinition></ColumnDefinition>
+                                        <ColumnDefinition></ColumnDefinition>
+                                        <ColumnDefinition></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition></RowDefinition>
+                                    </Grid.RowDefinitions>
+
+                                    <Label TextColor="White">Materia</Label>
+                                    <Label TextColor="White"  Grid.Column="1">U.</Label>
+                                    <Label TextColor="White"  Grid.Column="2">Calif.</Label>
+                                    <Label TextColor="White" Grid.Column="4">Año</Label>
+                                </Grid>
+
+                                <Grid Grid.Row="1" BackgroundColor="#bebfc1" Margin="20,0,20,0" Padding="15">
+
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="120"></ColumnDefinition>
+                                        <ColumnDefinition></ColumnDefinition>
+                                        <ColumnDefinition></ColumnDefinition>
+                                        <ColumnDefinition></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition></RowDefinition>
+                                    </Grid.RowDefinitions>
+
+                                    <Label Text="{Binding NombreAsignatura}"></Label>
+                                    <Label Text="{Binding Unidad}" Grid.Column="1"></Label>
+                                    <Label Text="{Binding Calificacion}" Grid.Column="2"></Label>
+                                    <Label Text="{Binding Año}" Grid.Column="4"></Label>
+                                </Grid>
+
+                            </Grid>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+
+
+            <!--</DataTemplate>
+                    </CollectionView.ItemTemplate>-->
+            <!--</CollectionView>-->
+
+        </StackLayout>
+        <!--<Button Grid.Row="2"  BackgroundColor="#ff6700" FontSize="20"  
+                    CharacterSpacing="3" Text="ATRÁS" HeightRequest="55"
+                    WidthRequest="200" CornerRadius="30"
+                    HorizontalOptions="Center" Margin="0,0,0,50" ></Button>-->
+    </Grid>
+</ContentPage>

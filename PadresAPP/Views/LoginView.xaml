@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:PadresAPP.ViewModels"
+             x:Class="PadresAPP.Views.LoginView"
+             Title="LoginView">
+    <ContentPage.BindingContext>
+        <vm:LoginViewModel></vm:LoginViewModel>
+    </ContentPage.BindingContext>
+    <Grid BackgroundColor="#ebebeb">
+        <Frame BackgroundColor="#3a6ea5" Margin="-2,-20,-4,580" CornerRadius="30" ></Frame>
+        <Frame Margin="20,150,20,40" BorderColor="White" HasShadow="True">
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="80"></RowDefinition>
+                    <RowDefinition Height="50"></RowDefinition>
+                    <RowDefinition Height="auto"></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+
+                </Grid.RowDefinitions>
+
+                <Label Grid.Row="1" Text="INICIO DE SESION " TextColor="Black" HorizontalTextAlignment="Center" CharacterSpacing="4" FontAttributes="Bold" Margin="30" ></Label>
+                <Image Grid.Row="0" Source="Resources/Images/perfi.png"></Image>
+                <StackLayout Grid.Row="3" Orientation="Vertical" HorizontalOptions="CenterAndExpand">
+                    <Frame BackgroundColor="#c0c0c0"  BorderColor="White" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="30">
+                        <StackLayout Orientation="Horizontal">
+                            <Frame  HeightRequest="40" WidthRequest="40"  CornerRadius="30" Margin="5" Padding="5">
+                                <Image  Source="Resources/Images/perfi.png" Aspect="AspectFill" Margin="0"/>
+                            </Frame>
+                            <Entry Text="{Binding NombreUsuario}"
+                                Placeholder="Usuario" TextColor="Black" PlaceholderColor="White"   FontAttributes="Bold" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Margin="0,0,20,0"  ></Entry>
+
+                        </StackLayout>
+                    </Frame>
+
+                    <Frame BackgroundColor="#c0c0c0" BorderColor="White" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="30" Margin="0,95,0,0">
+                        <StackLayout Orientation="Horizontal">
+                            <Frame  HeightRequest="40" WidthRequest="40"  CornerRadius="30" Margin="5" Padding="5">
+                                <Image  Source="Resources/Images/perfils.png" Aspect="AspectFill" Margin="0"/>
+                            </Frame>
+                            <Entry Text="{Binding Password}" Placeholder="Contraseña" TextColor="Black" PlaceholderColor="White" FontAttributes="Bold" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Margin="0,0,20,0"  IsPassword="True" ></Entry>
+
+                        </StackLayout>
+                    </Frame>
+
+
+                </StackLayout>
+
+                <Button Command="{Binding IniciarSesionCommand}" 
+                    Grid.Row="5" CornerRadius="30" WidthRequest="200" HeightRequest="50" BackgroundColor="#004e98" Text="INICIAR" TextColor="White" CharacterSpacing="6">
+                </Button>
+            </Grid>
+
+        </Frame>
+    </Grid>
+</ContentPage>

@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PadresAPP.Views.DetallesAlumnoView"
+             Title="Detalles" NavigationPage.HasBackButton="False">
+    <ContentPage.Resources>
+        <Style TargetType="Label">
+            <Setter Property="FontAttributes" Value="Bold"></Setter>
+
+            <Setter Property="Margin" Value="10,0,0,40"></Setter>
+            <Setter Property="FontSize" Value="20"></Setter>
+
+        </Style>
+
+    </ContentPage.Resources>
+
+    <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" ></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <StackLayout Orientation="Horizontal"
+                     Background="#c0c0c0c0">
+
+            <Image Source="perfil.png" Margin="10,0,0,5"></Image>
+
+            <StackLayout
+                VerticalOptions="CenterAndExpand"
+                HorizontalOptions="FillAndExpand">
+
+                <Label Margin="30,0,0,0" FontSize="Title" Text="{Binding Alumno.Nombre}"></Label>
+
+                <StackLayout Orientation="Horizontal"
+                             Margin="30,0,0,0">
+
+                    <Label Margin="0" FontSize="Title" Text="{Binding Alumno.Grado}"></Label>
+                    <Label Margin="0" FontSize="Title" Text="{Binding Alumno.Seccion}"></Label>
+                </StackLayout>
+
+
+            </StackLayout>
+
+        </StackLayout>
+
+        <StackLayout  Grid.Row="1">
+
+            <Frame Margin="15,25" Padding="10" BackgroundColor="#ebebeb"
+                   BorderColor="Transparent" CornerRadius="20" >
+
+
+                <Grid Padding="10,15" >
+
+
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"></RowDefinition>
+                        <RowDefinition Height="auto"></RowDefinition>
+                        <RowDefinition Height="auto"></RowDefinition>
+                        <RowDefinition Height="auto"></RowDefinition>
+                        <RowDefinition Height="auto"></RowDefinition>
+                        <RowDefinition Height="auto"></RowDefinition>
+                        <RowDefinition Height="auto"></RowDefinition>
+                        <RowDefinition Height="auto"></RowDefinition>
+                        <RowDefinition Height="auto"></RowDefinition>
+                        <RowDefinition Height="auto"></RowDefinition>
+                    </Grid.RowDefinitions>
+
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition  Width="auto"></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+
+
+
+                    <Label>Nombre :</Label>
+                    <Label Margin="15,0,0,0" Grid.Column="1" 
+                       FontAttributes="None" Text="{Binding Alumno.Nombre}"></Label>
+
+                    <Label Grid.Row="2">Matricula :</Label>
+                    <Label Grid.Column="1" Margin="15,0,0,0"
+                       FontAttributes="None" Grid.Row="2">Matricula</Label>
+
+                    <Label Grid.Row="3">CURP :</Label>
+                    <Label Grid.Row="3" Margin="15,0,0,0"
+                       FontAttributes="None" Grid.Column="1">CURP</Label>
+
+                    <Label  Grid.Row="4">Direccíon :</Label>
+                    <Label Grid.Row="4" Margin="15,0,0,0"  
+                       FontAttributes="None" Grid.Column="1">Dirección</Label>
+
+                    <Label   Grid.Row="5">Fecha de Nacimiento :</Label>
+                    <Label Grid.Row="5" Margin="15,0,0,0"  
+                       FontAttributes="None" Grid.Column="1">Fecha de Nacimiento</Label>
+
+
+                    <Label Grid.Row="6">Edad :</Label>
+                    <Label Grid.Row="6" Margin="15,0,0,0"  
+                       FontAttributes="None" Grid.Column="1">Edad</Label>
+
+                    <Label  Grid.Row="7">Peso :</Label>
+                    <Label Grid.Row="7" Margin="15,0,0,0"  
+                       FontAttributes="None" Grid.Column="1">Peso</Label>
+
+                    <Label  Grid.Row="8">Estatura :</Label>
+                    <Label Grid.Row="8" Margin="15,0,0,0" 
+                       FontAttributes="None" Grid.Column="1">Estatura</Label>
+
+                    <Label  Grid.Row="9">Alérgias :</Label>
+                    <Label Grid.Row="9" Margin="15,0,0,0"  
+                       FontAttributes="None" Grid.Column="1">Alérgias</Label>
+
+                </Grid>
+            </Frame>
+
+
+            <Button BackgroundColor="#ff6700" FontSize="20"  
+                    CharacterSpacing="3" Text="ATRÁS" HeightRequest="55"
+                    WidthRequest="200" CornerRadius="30"
+                    HorizontalOptions="Center" ></Button>
+
+        </StackLayout>
+    </Grid>
+</ContentPage>
