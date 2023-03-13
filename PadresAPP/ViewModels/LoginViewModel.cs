@@ -77,7 +77,7 @@ namespace PadresAPP.ViewModels
                 else
                     await App.Current.MainPage.DisplayAlert("Error", "No hay conexion a internet.", "OK");
 
-                IsLoading = false;
+                IsLoading = false; 
                 Actualizar();
 
 

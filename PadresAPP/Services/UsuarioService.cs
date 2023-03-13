@@ -44,6 +44,7 @@ namespace PadresAPP.Services
             }
             else
             {
+
                 var errores = await response.Result.Content.ReadAsStringAsync();
                 Error?.Invoke(errores);
                 return null;
